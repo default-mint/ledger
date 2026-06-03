@@ -1,560 +1,239 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Investing Your First $1,000 — Ledger</title>
-  <meta name="description" content="Investing Your First $1,000 (Digital Download). Start investing with confidence, even on a small budget.">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
-
-  <style>
-    
-  :root {
-    --bg:         #0E0F12;
-    --bg-elev:    #16171C;
-    --bg-card:    #1A1C22;
-    --ink:        #F5F2EE;
-    --muted:      #B5B8C5;
-    --muted-2:    #989CAA;
-    --rule:       #2A2D3A;
-    --rule-hi:    #393D4E;
-    --accent:     #15A34A;
-    --accent-soft:#DCFCE7;
-    --cream:      #F2EFEA;
-    --cream-ink:  #1F2026;
-    --cream-mute: #5E6170;
-    --cream-rule: #DAD5CC;
-    --accent-dim: #166534;
-    --ok:         #4ADE80;
-    --display:    'Barlow Condensed', system-ui, sans-serif;
-    --body:       'DM Sans', system-ui, sans-serif;
-    --mono:       'IBM Plex Mono', ui-monospace, monospace;
-    --maxw:       1240px;
-    --r:          14px;
-    --r-sm:       10px;
-  }
-  *, *::before, *::after { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--body);
-    font-size: 18px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  a { color: inherit; text-decoration: none; }
-  img { display: block; max-width: 100%; }
-  ::selection { background: var(--accent); color: #fff; }
-  .mono { font-family: var(--mono); font-feature-settings: "tnum"; }
-  .container { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
-  @media (max-width: 640px) { .container { padding: 0 18px; } }
-
-  /* nav */
-  .topbar {
-    position: sticky; top: 0; z-index: 50;
-    background: rgba(14,15,18,0.92);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--rule);
-  }
-  .topbar .row {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 28px;
-    max-width: var(--maxw); margin: 0 auto;
-  }
-  .wordmark {
-    font-family: var(--display);
-    font-weight: 700; font-size: 30px;
-    letter-spacing: -0.005em;
-    color: var(--ink);
-    display: inline-flex; align-items: center; gap: 12px;
-  }
-  .wordmark .mark {
-    width: 32px; height: 32px;
-    background: var(--accent);
-    border-radius: 50%;
-    display: inline-flex; align-items: center; justify-content: center;
-    color: #fff; font-size: 16px; font-weight: 600;
-    font-family: var(--body);
-  }
-  .nav-links {
-    display: flex; gap: 30px; align-items: center;
-    font-size: 16px; color: var(--muted);
-    font-weight: 500;
-  }
-  .nav-links a { transition: color .14s ease; }
-  .nav-links a:hover { color: var(--ink); }
-  .cart-btn {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 10px 16px;
-    background: var(--bg-elev);
-    border: 1px solid var(--rule-hi);
-    border-radius: var(--r-sm);
-    font-size: 15px;
-    font-weight: 500;
-    transition: border-color .14s ease;
-  }
-  .cart-btn:hover { border-color: var(--accent); }
-  .cart-btn[data-empty="0"] { border-color: var(--accent); color: var(--accent); }
-  .cart-btn .cb-count {
-    background: var(--accent); color: #fff;
-    border-radius: 999px;
-    min-width: 24px; height: 24px;
-    display: inline-flex; align-items: center; justify-content: center;
-    font-size: 13px; font-weight: 600;
-  }
-  @media (max-width: 720px) {
-    .nav-links { display: none; }
-  }
-
-  /* buttons */
-  .btn {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 16px 26px;
-    background: var(--accent); color: #fff;
-    border: 0; border-radius: 999px;
-    font-family: var(--body); font-weight: 600; font-size: 16px;
-    cursor: pointer;
-    transition: transform .12s ease, background .14s ease;
-  }
-  .btn:hover { transform: translateY(-1px); background: #128A3F; }
-  .btn--ghost {
-    background: transparent; color: var(--ink);
-    border: 1px solid var(--rule-hi);
-  }
-  .btn--ghost:hover { background: var(--bg-elev); border-color: var(--ink); }
-  .btn--big { padding: 18px 32px; font-size: 17px; }
-
-  /* footer */
-  footer.foot {
-    margin-top: 100px;
-    border-top: 1px solid var(--rule);
-    padding: 56px 28px 32px;
-    background: #0A0B0E;
-  }
-  footer.foot .row {
-    max-width: var(--maxw); margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 36px;
-  }
-  footer.foot h4 {
-    font-size: 15px; font-weight: 600;
-    margin: 0 0 16px; color: var(--ink);
-  }
-  footer.foot a {
-    display: block; padding: 6px 0;
-    color: var(--muted); font-size: 16px;
-    transition: color .14s ease;
-  }
-  footer.foot a:hover { color: var(--accent); }
-  footer.foot .colophon {
-    color: var(--muted); font-size: 16px; line-height: 1.7;
-  }
-  footer.foot .colophon strong { color: var(--ink); font-weight: 600; }
-  footer.foot .smallprint {
-    max-width: var(--maxw); margin: 44px auto 0;
-    padding-top: 24px; border-top: 1px solid var(--rule);
-    font-size: 14px; color: var(--muted);
-    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px;
-  }
-  @media (max-width: 900px) { footer.foot .row { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 540px) { footer.foot .row { grid-template-columns: 1fr; } }
-
-
-    /* Top spread — single row, no sticky rail */
-    .spread {
-      max-width: var(--maxw); margin: 0 auto;
-      padding: 40px 28px 60px;
-    }
-    .crumbs {
-      font-size: 15px; color: var(--muted);
-      margin-bottom: 24px;
-    }
-    .crumbs a:hover { color: var(--ink); }
-    .crumbs span { color: var(--ink); }
-
-    .spread .grid2 {
-      display: grid;
-      grid-template-columns: 0.85fr 1fr;
-      gap: 56px;
-      align-items: start;
-    }
-    .cover-card {
-      background: var(--bg-elev);
-      border-radius: var(--r);
-      padding: 26px;
-      border: 1px solid var(--rule);
-    }
-    .cover-card img {
-      width: 100%; height: auto;
-      aspect-ratio: 3 / 4;
-      object-fit: cover;
-      border-radius: var(--r-sm);
-      box-shadow: 0 24px 50px rgba(0,0,0,0.55);
-    }
-
-    .info-col {}
-    .bucket-tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 8px 16px;
-      background: rgba(21,163,74,0.12);
-      color: var(--accent);
-      border-radius: 999px;
-      font-size: 15px; font-weight: 500;
-      margin-bottom: 20px;
-    }
-    h1.title {
-      font-family: var(--display); font-weight: 700;
-      font-size: clamp(40px, 5vw, 56px);
-      line-height: 1.05; letter-spacing: -0.01em;
-      margin: 0 0 12px;
-    }
-    .by { font-size: 18px; color: var(--muted); margin: 0 0 24px; }
-    .by b { color: var(--ink); font-weight: 500; }
-
-    .price-block {
-      background: var(--bg-card);
-      border: 1px solid var(--rule);
-      border-radius: var(--r);
-      padding: 28px;
-      margin: 24px 0 28px;
-    }
-    .price-row { display: flex; align-items: baseline; gap: 14px; margin-bottom: 20px; }
-    .price-row .price {
-      font-family: var(--display); font-weight: 700;
-      font-size: 56px; line-height: 1;
-      color: var(--accent);
-      letter-spacing: -0.01em;
-    }
-    .price-row .currency { font-size: 16px; color: var(--muted); }
-    .formats { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
-    .fmt-chip {
-      padding: 6px 14px;
-      background: var(--bg-elev);
-      border: 1px solid var(--rule-hi);
-      border-radius: 999px;
-      font-size: 14px; color: var(--muted);
-      font-weight: 500;
-    }
-    .buy-actions { display: flex; gap: 10px; flex-wrap: wrap; }
-    .buy-actions .btn { flex: 1; justify-content: center; }
-    .add-msg {
-      margin-top: 16px;
-      font-size: 15px;
-      color: var(--ok);
-      display: none;
-    }
-    .add-msg.show { display: flex; align-items: center; gap: 8px; }
-
-    .info-list {
-      margin-top: 22px;
-      padding-top: 22px;
-      border-top: 1px solid var(--rule);
-    }
-    .info-row {
-      display: flex; justify-content: space-between;
-      padding: 10px 0;
-      font-size: 16px;
-    }
-    .info-k { color: var(--muted); }
-    .info-v { color: var(--ink); font-weight: 500; }
-
-    /* Reading column — description sits below the spread, centered, max 720 */
-    .read-col {
-      max-width: 760px; margin: 0 auto;
-      padding: 30px 28px 60px;
-    }
-    .desc h2 {
-      font-family: var(--display); font-weight: 700;
-      font-size: 30px; margin: 0 0 16px;
-      letter-spacing: -0.005em;
-    }
-    .desc p { margin: 0 0 18px; color: var(--ink); line-height: 1.7; font-size: 19px; }
-    .desc ul { padding-left: 0; list-style: none; margin: 20px 0; }
-    .desc li {
-      padding-left: 32px;
-      position: relative;
-      margin: 12px 0;
-      color: var(--ink);
-      line-height: 1.6;
-      font-size: 19px;
-    }
-    .desc li::before {
-      content: "✓";
-      position: absolute;
-      left: 0; top: 0;
-      color: var(--accent);
-      font-weight: 600;
-      font-size: 19px;
-    }
-    .desc-h {
-      font-family: var(--display); font-weight: 700;
-      font-size: 24px;
-      margin: 30px 0 12px;
-      letter-spacing: -0.005em;
-    }
-
-    /* reviews — sit on cream background, contrast break */
-    .reviews-band { background: var(--cream); color: var(--cream-ink); padding: 80px 28px; }
-    .reviews {
-      max-width: var(--maxw); margin: 0 auto;
-    }
-    .reviews h2 {
-      font-family: var(--display); font-weight: 700;
-      font-size: clamp(30px, 3.4vw, 42px);
-      margin: 0 0 32px;
-      letter-spacing: -0.01em;
-      color: var(--cream-ink);
-    }
-    .review-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-    }
-    .review {
-      background: #FFF;
-      border: 1px solid var(--cream-rule);
-      border-radius: var(--r);
-      padding: 28px 30px;
-      margin: 0;
-    }
-    .review blockquote { margin: 0 0 16px; line-height: 1.6; font-size: 18px; color: var(--cream-ink); }
-    .review figcaption { color: var(--cream-mute); font-size: 15px; font-weight: 500; }
-    @media (max-width: 720px) { .review-grid { grid-template-columns: 1fr; } }
-
-    /* xsell */
-    .xsell {
-      max-width: var(--maxw); margin: 0 auto;
-      padding: 60px 28px 0;
-    }
-    .xsell h2 {
-      font-family: var(--display); font-weight: 700;
-      font-size: clamp(30px, 3.4vw, 42px);
-      margin: 0 0 32px;
-      letter-spacing: -0.01em;
-    }
-    .xsell .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-    @media (max-width: 720px) { .xsell .grid { grid-template-columns: 1fr 1fr; } }
-
-    /* Reuse card styles for xsell */
-    .card {
-      display: flex; flex-direction: column;
-      background: var(--bg-card);
-      border-radius: var(--r);
-      overflow: hidden;
-      border: 1px solid var(--rule);
-      transition: transform .18s ease, border-color .18s ease;
-    }
-    .card:hover { transform: translateY(-4px); border-color: var(--accent); }
-    .card-cover { position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: var(--bg); }
-    .card-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
-    .card:hover .card-cover img { transform: scale(1.04); }
-    .card-bucket {
-      position: absolute; top: 12px; left: 12px;
-      padding: 5px 10px;
-      background: rgba(14,15,18,0.85); backdrop-filter: blur(8px);
-      border-radius: 999px; font-size: 12px; font-weight: 500;
-    }
-    .card-body { padding: 22px 22px 24px; display: flex; flex-direction: column; flex: 1; gap: 8px; }
-    .card-title {
-      margin: 0;
-      font-family: var(--display); font-weight: 700;
-      font-size: 24px; line-height: 1.18; letter-spacing: -0.005em;
-      display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
-    }
-    .card-byline { margin: 0 0 8px; font-size: 15px; color: var(--muted); }
-    .card-foot { margin-top: auto; display: flex; justify-content: space-between; align-items: center; padding-top: 10px; }
-    .card-price { font-size: 20px; font-weight: 600; color: var(--accent); }
-    .card-cta { font-size: 15px; font-weight: 500; color: var(--muted); }
-    .card:hover .card-cta { color: var(--accent); }
-
-    @media (max-width: 880px) {
-      .spread .grid2 { grid-template-columns: 1fr; gap: 32px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investing Your First $1,000 — Ledger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16191F;--ink-soft:#3C424D;--muted:#727A87;--line:#E4E7EC;
+  --bg:#F7F8FA;--panel:#FFFFFF;--accent:#15A34A;--accent-dark:#0F7C38;
+  --sidebar-w:240px;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.sidebar{position:fixed;top:0;left:0;bottom:0;width:var(--sidebar-w);background:var(--panel);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:30px 24px;z-index:50}
+.brand{display:flex;align-items:center;gap:11px;margin-bottom:42px}
+.brand-mark{width:38px;height:38px;border-radius:9px;background:var(--accent);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-weight:600;font-size:23px;box-shadow:0 4px 10px rgba(21,163,74,.28)}
+.brand-word{font-family:var(--serif);font-weight:600;font-size:25px;letter-spacing:.2px}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:10px}
+.nav a{display:block;padding:9px 12px;border-radius:8px;color:var(--ink-soft);font-size:15px;font-weight:500;transition:background .15s,color .15s}
+.nav a:hover{background:#F1F3F6;color:var(--ink)}
+.nav a.active{color:var(--accent-dark);background:#EAF7EF}
+.sidebar-foot{margin-top:auto;padding-top:24px;border-top:1px solid var(--line)}
+.cart-link{display:flex;align-items:center;justify-content:space-between;padding:11px 13px;border-radius:9px;border:1px solid var(--line);font-weight:600;font-size:15px;transition:border-color .15s,background .15s}
+.cart-link:hover{border-color:var(--accent);background:#F6FBF8}
+.cart-badge{min-width:23px;height:23px;padding:0 6px;border-radius:999px;background:var(--accent);color:#fff;display:inline-grid;place-items:center;font-size:12.5px;font-weight:700}
+.tagline{margin-top:16px;font-size:12px;color:var(--muted);line-height:1.5}
+.main{margin-left:var(--sidebar-w)}
+.wrap{max-width:880px;padding:40px 56px 80px}
+.crumb{font-size:13px;color:var(--muted);margin-bottom:30px}
+.crumb a{color:var(--ink-soft)}
+.crumb a:hover{color:var(--accent-dark)}
+.crumb span{color:var(--line);margin:0 8px}
+.crumb .here{color:var(--ink-soft)}
+.detail{display:flex;gap:40px;align-items:flex-start}
+.detail-cover{flex:0 0 230px}
+.detail-cover img{width:230px;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:12px;border:1px solid var(--line);box-shadow:0 14px 34px rgba(20,30,50,.13)}
+.detail-info{flex:1;min-width:0;padding-top:4px}
+.kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-dark);font-weight:700;margin-bottom:14px}
+.detail-info h1{font-family:var(--serif);font-weight:600;font-size:clamp(28px,3.6vw,40px);line-height:1.12;letter-spacing:-.4px}
+.detail-info .sub{font-size:18px;color:var(--ink-soft);margin-top:14px;line-height:1.5;max-width:46ch}
+.buy-block{margin-top:28px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.big-price{font-family:var(--serif);font-weight:600;font-size:34px;color:var(--ink);line-height:1}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{font-family:var(--sans);font-size:15px;font-weight:600;border-radius:10px;padding:13px 24px;cursor:pointer;border:1px solid transparent;transition:background .15s,border-color .15s,transform .05s}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 5px 14px rgba(21,163,74,.26)}
+.btn-primary:hover{background:var(--accent-dark)}
+.btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent-dark)}
+.add-msg{margin-top:14px;font-size:14px;font-weight:600;color:var(--accent-dark);background:#EAF7EF;border:1px solid #CDEBD8;border-radius:8px;padding:9px 14px;display:inline-block;opacity:0;transform:translateY(-4px);transition:opacity .2s,transform .2s;pointer-events:none}
+.add-msg.show{opacity:1;transform:translateY(0)}
+.meta-row{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}
+.tag{font-size:12.5px;color:var(--ink-soft);background:#F1F3F6;border:1px solid var(--line);border-radius:999px;padding:5px 13px;font-weight:500}
+.section{margin-top:56px;padding-top:30px;border-top:1px solid var(--line)}
+.section h2{font-family:var(--serif);font-weight:600;font-size:24px;letter-spacing:-.3px;margin-bottom:18px}
+.section p{font-size:16.5px;color:var(--ink-soft);margin-top:14px;line-height:1.7;max-width:64ch}
+.section p:first-of-type{margin-top:0}
+.inside{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:14px 28px;margin-top:6px}
+.inside li{position:relative;padding-left:28px;font-size:15.5px;color:var(--ink-soft);line-height:1.5}
+.inside li::before{content:"";position:absolute;left:0;top:8px;width:14px;height:14px;border-radius:4px;background:#EAF7EF;border:1.5px solid var(--accent)}
+.inside li::after{content:"";position:absolute;left:4px;top:11px;width:5px;height:8px;border:solid var(--accent-dark);border-width:0 2px 2px 0;transform:rotate(45deg)}
+.more{list-style:none;margin-top:6px}
+.more-row{display:flex;align-items:center;gap:18px;padding:16px 4px;border-bottom:1px solid var(--line)}
+.more-row:hover{background:#FBFCFD}
+.more-cover{width:52px;height:52px;flex:0 0 52px;border-radius:6px;object-fit:cover;border:1px solid var(--line)}
+.more-mid{flex:1;min-width:0}
+.more-mid h3{font-family:var(--serif);font-weight:600;font-size:16.5px;line-height:1.25}
+.more-mid p{font-size:13.5px;color:var(--muted);margin-top:2px}
+.more-link{font-size:14px;font-weight:600;color:var(--accent-dark);border:1px solid #CDEBD8;border-radius:8px;padding:7px 14px;transition:background .15s,border-color .15s;white-space:nowrap}
+.more-link:hover{background:#EAF7EF;border-color:var(--accent)}
+.foot{margin-top:64px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted)}
+.foot a{color:var(--ink-soft)}
+.foot a:hover{color:var(--accent-dark)}
+.foot-links{display:flex;gap:18px;flex-wrap:wrap}
+@media(max-width:820px){
+  .sidebar{position:sticky;top:0;left:0;right:0;width:auto;height:auto;bottom:auto;flex-direction:row;align-items:center;padding:14px 18px;border-right:none;border-bottom:1px solid var(--line);gap:16px;overflow-x:auto}
+  .brand{margin-bottom:0;flex:0 0 auto}
+  .nav-label{display:none}
+  .nav{flex-direction:row;align-items:center;gap:2px;flex:1}
+  .nav a{padding:7px 10px;white-space:nowrap;font-size:14px}
+  .sidebar-foot{margin:0;padding:0;border:none;flex:0 0 auto}
+  .tagline{display:none}
+  .cart-link{padding:8px 12px}
+  .main{margin-left:0}
+  .wrap{padding:30px 22px 60px}
+  .detail{flex-direction:column;gap:26px}
+  .detail-cover{flex:0 0 auto;align-self:flex-start}
+  .detail-cover img{width:170px}
+  .inside{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  .brand-word{display:none}
+  .big-price{font-size:30px}
+  .btn{flex:1}
+}
+</style>
 </head>
 <body>
 
-  <header class="topbar">
-    <div class="row">
-      <a class="wordmark" href="../index.html">
-        <span class="mark">L</span>Ledger
-      </a>
-      <nav class="nav-links">
-        <a href="../index.html#library">Library</a>
-        <a href="../index.html#about">About</a>
+<aside class="sidebar">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark">L</span>
+    <span class="brand-word">Ledger</span>
+  </a>
+  <nav class="nav">
+    <span class="nav-label">Browse</span>
+    <a href="../index.html#library">Library</a>
+    <a href="../index.html#about">About</a>
+    <a href="../delivery.html">Delivery</a>
+    <a href="../returns.html">Refunds</a>
+  </nav>
+  <div class="sidebar-foot">
+    <a class="cart-link" href="../checkout.html">
+      <span>Cart</span>
+      <span class="cart-badge" id="cart-count">0</span>
+    </a>
+    <p class="tagline">Plain language money guides. Instant PDF delivery, no subscriptions.</p>
+  </div>
+</aside>
+
+<main class="main">
+  <div class="wrap">
+
+    <nav class="crumb">
+      <a href="../index.html">Ledger</a><span>/</span><a href="../index.html#library">Library</a><span>/</span><span class="here">Investing Your First $1,000</span>
+    </nav>
+
+    <section class="detail">
+      <div class="detail-cover">
+        <img src="../covers/investing-your-first-1000.jpg" alt="Cover of Investing Your First $1,000">
+      </div>
+      <div class="detail-info">
+        <p class="kicker">Personal finance ebook</p>
+        <h1>Investing Your First $1,000</h1>
+        <p class="sub">Start investing with confidence, even on a small budget.</p>
+
+        <div class="buy-block">
+          <span class="big-price">$29.95</span>
+          <div class="btns">
+            <button class="btn btn-primary" id="add">Add to cart</button>
+            <button class="btn btn-ghost" id="buy">Buy now</button>
+          </div>
+        </div>
+        <div class="add-msg" id="add-msg">Added to your cart.</div>
+
+        <div class="meta-row">
+          <span class="tag">PDF download</span>
+          <span class="tag">6 chapters</span>
+          <span class="tag">Instant delivery</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>About this ebook</h2>
+        <p>Investing can seem like a club reserved for the wealthy or the financially fluent, full of confusing terms and intimidating risk. This ebook strips all of that away and shows you how to put your first thousand dollars to work in a calm, sensible way. It is written for complete beginners who want to understand what they are doing before they do it.</p>
+        <p>You will learn the core ideas behind growing money over time, the difference between common investment types, how to manage risk, and the simple, low cost approach that works for most ordinary people. There is no stock picking hype here, just a steady foundation you can build on for years to come.</p>
+    </section>
+
+    <section class="section">
+      <h2>What's inside</h2>
+      <ul class="inside">
+          <li>Understand investing basics without confusing jargon</li>
+          <li>Learn why time matters more than timing</li>
+          <li>Tell the difference between stocks, bonds, and funds</li>
+          <li>Open the right kind of account to start</li>
+          <li>Build a simple, low cost beginner portfolio</li>
+          <li>Avoid common mistakes that cost new investors money</li>
+          <li>Set up automatic investing so it keeps growing</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>More from the library</h2>
+      <ul class="more">
+        <li class="more-row">
+          <img class="more-cover" src="../covers/50-ways-to-save-500-a-month.jpg" alt="Cover of 50 Ways to Save $500 a Month">
+          <div class="more-mid">
+            <h3>50 Ways to Save $500 a Month</h3>
+            <p>Practical cuts that add up to real monthly savings.</p>
+          </div>
+          <a class="more-link" href="../books/50-ways-to-save-500-a-month.html">View</a>
+        </li>
+        <li class="more-row">
+          <img class="more-cover" src="../covers/the-emergency-fund-starter.jpg" alt="Cover of The Emergency Fund Starter">
+          <div class="more-mid">
+            <h3>The Emergency Fund Starter</h3>
+            <p>Build your first safety cushion without crushing your budget.</p>
+          </div>
+          <a class="more-link" href="../books/the-emergency-fund-starter.html">View</a>
+        </li>
+        <li class="more-row">
+          <img class="more-cover" src="../covers/the-credit-score-cleanup.jpg" alt="Cover of The Credit Score Cleanup">
+          <div class="more-mid">
+            <h3>The Credit Score Cleanup</h3>
+            <p>Understand, repair, and raise your credit the honest way.</p>
+          </div>
+          <a class="more-link" href="../books/the-credit-score-cleanup.html">View</a>
+        </li>
+      </ul>
+    </section>
+
+    <footer class="foot">
+      <span>Ledger. Practical personal finance ebooks.</span>
+      <span class="foot-links">
         <a href="../delivery.html">Delivery</a>
         <a href="../returns.html">Refunds</a>
-      </nav>
-      <a class="cart-btn" href="../checkout.html" id="cart-btn" data-empty="1">
-        🛒 Cart <span class="cb-count" id="cart-count">0</span>
-      </a>
-    </div>
-  </header>
-
-<section class="spread">
-  <div class="crumbs">
-    <a href="../index.html">Library</a> / <span>Investing Your First $1,000</span>
-  </div>
-  <div class="grid2">
-    <div class="cover-card">
-      <img src="../covers/investing-your-first-1000.jpg" alt="Investing Your First $1,000 cover">
-    </div>
-    <div class="info-col">
-      <div class="bucket-tag">💰 Money guides</div>
-      <h1 class="title">Investing Your First $1,000</h1>
-      <p class="by">A <b>Ledger</b> guide</p>
-      <div class="price-block">
-        <div class="price-row">
-          <span class="price">$29.95</span>
-          <span class="currency">USD · one-time</span>
-        </div>
-        <div class="formats"><span class="fmt-chip">PDF</span><span class="fmt-chip">Instant download</span></div>
-        <div class="buy-actions">
-          <button class="btn" id="add">🛒 Add to cart</button>
-          <button class="btn btn--ghost" id="buy">Buy now</button>
-        </div>
-        <div class="add-msg" id="add-msg">✓ Added to cart</div>
-        <div class="info-list">
-          <div class="info-row"><span class="info-k">📨 Delivery</span><span class="info-v">By email</span></div>
-          <div class="info-row"><span class="info-k">Pages</span><span class="info-v">32</span></div>
-          <div class="info-row"><span class="info-k">🛡️ Refund</span><span class="info-v">30 days</span></div>
-          <div class="info-row"><span class="info-k">📂 Format</span><span class="info-v">PDF</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="read-col">
-  <div class="desc">
-    <h2>About this ebook</h2>
-    <p class="lede" style="color:var(--muted);font-size:20px;margin:0 0 18px">Start investing with confidence, even on a small budget.</p>
-    <p>Investing can seem like a club reserved for the wealthy or the financially fluent, full of confusing terms and intimidating risk. This ebook strips all of that away and shows you how to put your first thousand dollars to work in a calm, sensible way. It is written for complete beginners who want to understand what they are doing before they do it.</p><p>You will learn the core ideas behind growing money over time, the difference between common investment types, how to manage risk, and the simple, low cost approach that works for most ordinary people. There is no stock picking hype here, just a steady foundation you can build on for years to come.</p>
-    <div class="desc-h">What is inside</div>
-    <ul><li>Understand investing basics without confusing jargon</li><li>Learn why time matters more than timing</li><li>Tell the difference between stocks, bonds, and funds</li><li>Open the right kind of account to start</li><li>Build a simple, low cost beginner portfolio</li><li>Avoid common mistakes that cost new investors money</li><li>Set up automatic investing so it keeps growing</li></ul>
-  </div>
-</section>
-
-<section class="xsell">
-  <h2>📖 More from the library</h2>
-  <div class="grid">
-    <a class="card" href="../books/the-zero-based-budget-blueprint.html">
-      <div class="card-cover">
-        <img src="../covers/the-zero-based-budget-blueprint.jpg" alt="The Zero-Based Budget Blueprint" loading="lazy">
-        <span class="card-bucket">💰 Money guides</span>
-      </div>
-      <div class="card-body">
-        <h3 class="card-title">The Zero-Based Budget Blueprint</h3>
-        <div class="card-foot">
-          <span class="card-price mono">$24.95</span>
-          <span class="card-cta">View →</span>
-        </div>
-      </div>
-    </a>
-    <a class="card" href="../books/debt-free-in-12-months.html">
-      <div class="card-cover">
-        <img src="../covers/debt-free-in-12-months.jpg" alt="Debt-Free in 12 Months: A Payoff Playbook" loading="lazy">
-        <span class="card-bucket">💰 Money guides</span>
-      </div>
-      <div class="card-body">
-        <h3 class="card-title">Debt-Free in 12 Months: A Payoff Playbook</h3>
-        <div class="card-foot">
-          <span class="card-price mono">$27.49</span>
-          <span class="card-cta">View →</span>
-        </div>
-      </div>
-    </a>
-    <a class="card" href="../books/50-ways-to-save-500-a-month.html">
-      <div class="card-cover">
-        <img src="../covers/50-ways-to-save-500-a-month.jpg" alt="50 Ways to Save $500 a Month" loading="lazy">
-        <span class="card-bucket">💰 Money guides</span>
-      </div>
-      <div class="card-body">
-        <h3 class="card-title">50 Ways to Save $500 a Month</h3>
-        <div class="card-foot">
-          <span class="card-price mono">$19.49</span>
-          <span class="card-cta">View →</span>
-        </div>
-      </div>
-    </a>
-  </div>
-</section>
-
-
-  <footer class="foot">
-    <div class="row">
-      <div class="colophon">
-        <strong>Ledger</strong> is a small online shop for practical money ebooks. Clear, jargon free guides on budgeting, paying off debt, saving more, and getting started with investing.<br><br>
-        [Company details to be added]
-      </div>
-      <div>
-        <h4>Shop</h4>
-        <a href="../index.html#library">All books</a>
-        <a href="../index.html#about">About Ledger</a>
-        <a href="../checkout.html">Cart</a>
-      </div>
-      <div>
-        <h4>Help</h4>
-        <a href="../delivery.html">Delivery</a>
-        <a href="../returns.html">Refunds</a>
-        <a href="mailto:help@ledgerreads.com">help@ledgerreads.com</a>
-      </div>
-      <div>
-        <h4>Legal</h4>
-        <a href="../terms.html">Terms</a>
         <a href="../privacy.html">Privacy</a>
-        <a href="../returns.html">Refund policy</a>
-      </div>
-    </div>
-    <div class="smallprint">
-      <span>© 2026 Ledger. All rights reserved.</span>
-      <span>Built for everyday money.</span>
-    </div>
-  </footer>
+        <a href="../terms.html">Terms</a>
+      </span>
+    </footer>
+
+  </div>
+</main>
 
 <script>
-  
-  const CURRENCY_SYMBOL = '$';
-  function readCart() { try { return JSON.parse(localStorage.getItem('cart_v1') || '[]'); } catch(e) { return []; } }
-  function writeCart(c) { localStorage.setItem('cart_v1', JSON.stringify(c)); paintCart(); }
-  function addToCart(item) {
-    const c = readCart();
-    const existing = c.find(x => x.slug === item.slug);
-    if (existing) existing.qty = (existing.qty || 1) + 1;
-    else c.push({...item, qty: 1});
-    writeCart(c);
-  }
-  function cartCount() { return readCart().reduce((n, i) => n + (i.qty || 1), 0); }
-  function paintCart() {
-    const n = cartCount();
-    const el = document.getElementById('cart-count');
-    const btn = document.getElementById('cart-btn');
-    if (el) el.textContent = n;
-    if (btn) btn.dataset.empty = n === 0 ? '1' : '0';
-  }
-  document.addEventListener('DOMContentLoaded', paintCart);
-  window.addEventListener('storage', paintCart);
-
-  const SKU = {"slug": "investing-your-first-1000", "title": "Investing Your First $1,000", "price": 29.95, "deliverables": ["PDF"], "author": "Ledger"};
-  document.getElementById('add').addEventListener('click', () => {
-    addToCart(SKU);
-    const m = document.getElementById('add-msg');
-    m.classList.add('show');
-    setTimeout(() => m.classList.remove('show'), 1600);
-  });
-  document.getElementById('buy').addEventListener('click', () => {
-    addToCart(SKU);
-    location.href = '../checkout.html';
-  });
+function readCart(){try{return JSON.parse(localStorage.getItem('cart_v1')||'[]')}catch(e){return[]}}
+function writeCart(c){localStorage.setItem('cart_v1',JSON.stringify(c));paintCart()}
+function addToCart(it){const c=readCart();const x=c.find(i=>i.slug===it.slug);if(x)x.qty=(x.qty||1)+1;else c.push({...it,qty:1});writeCart(c)}
+function cartCount(){return readCart().reduce((n,i)=>n+(i.qty||1),0)}
+function paintCart(){const n=cartCount();const el=document.getElementById('cart-count');if(el)el.textContent=n}
+document.addEventListener('DOMContentLoaded',paintCart);window.addEventListener('storage',paintCart)
+</script>
+<script>
+const SKU={"slug":"investing-your-first-1000","title":"Investing Your First $1,000","price":29.95,"deliverables":["PDF"],"author":"Ledger"};
+document.getElementById('add').onclick=()=>{addToCart(SKU);const m=document.getElementById('add-msg');if(m){m.classList.add('show');setTimeout(()=>m.classList.remove('show'),1500)}};
+document.getElementById('buy').onclick=()=>{addToCart(SKU);location.href='../checkout.html'};
 </script>
 </body>
 </html>
